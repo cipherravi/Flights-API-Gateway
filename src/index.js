@@ -47,6 +47,6 @@ app.listen(PORT, () => {
   console.log("Server started running at PORT ::", PORT);
 });
 
-//http://localhost:1812/authService/api/v1/info
-//http://localhost:1812/flightService/api/v1/flights
-//http://localhost:1812/bookingService/api/v1/info
+//http://localhost:PORT/authService/api/v1/info
+//http://localhost:PORT/flightService/api/v1/flights
+//http://localhost:PORT/bookingService/api/v1/info
