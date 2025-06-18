@@ -6,7 +6,6 @@ const { PORT, AUTH_SERVICE_URL, BOOKING_SERVICE_URL, FLIGHT_SERVICE_URL } =
 const apiRoutes = require("./routes");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const rateLimit = require("express-rate-limit");
-const mailSender = require("./config/mail-config");
 
 const limiter = rateLimit({
   windowMs: 1000 * 60 * 15,
@@ -45,19 +44,8 @@ app.use(
 
 app.use("/api", apiRoutes);
 
-app.listen(PORT, async () => {
-  try {
-    console.log("Server started running at PORT ::", PORT);
-    const response = await mailSender.sendMail({
-      from: `"Flights" ${ServerConfig.GMAIL_ID}`,
-      to: "ravikydv183@gmail.com",
-      subject: "Your booked ticket",
-      text: "Hello from Flights service email ",
-    });
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
+app.listen(PORT, () => {
+  console.log("Server started running at PORT ::", PORT);
 });
 
 //http://localhost:PORT/authService/api/v1/info
