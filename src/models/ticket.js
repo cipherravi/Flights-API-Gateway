@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Ticket.init(
     {
+      header: { type: DataTypes.STRING, allowNull: false },
       subject: { type: DataTypes.STRING, allowNull: false },
       content: { type: DataTypes.STRING, allowNull: false },
       recepientEmail: { type: DataTypes.STRING, allowNull: false },

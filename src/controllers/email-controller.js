@@ -39,8 +39,9 @@ async function sendMail(req, res) {
 
 async function createTicket(req, res) {
   try {
-    const { subject, content, recepientEmail } = req.body;
+    const { header, subject, content, recepientEmail } = req.body;
     const response = await EmailService.createTicket({
+      header,
       subject,
       content,
       recepientEmail,
@@ -72,10 +73,9 @@ async function createTicket(req, res) {
   }
 }
 
-async function getPendingTicekts(req, res) {
+async function getPendingTickets(req, res) {
   try {
-    const response = await EmailService.getPendingTicekts();
-    console.log("Controller", response);
+    const response = await EmailService.getPendingTickets();
 
     if (!response) {
       throw new AppError(
@@ -104,4 +104,4 @@ async function getPendingTicekts(req, res) {
   }
 }
 
-module.exports = { sendMail, createTicket, getPendingTicekts };
+module.exports = { sendMail, createTicket, getPendingTickets };

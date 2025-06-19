@@ -20,7 +20,6 @@ async function sendMail(header, to, subject, text) {
 
     //Send Mail
     const info = await MailConfig.sendMail(mailOptions);
-    console.log("Email sent:", info.response);
     return info.response;
   } catch (error) {
     throw error;
@@ -34,9 +33,10 @@ async function createTicket(data) {
     throw error;
   }
 }
-async function getPendingTicekts() {
+async function getPendingTickets() {
   try {
-    const response = await ticketRepositoty.getPendingTicekts();
+    const response = await ticketRepositoty.getPendingTickets();
+
     if (!response) {
       throw new AppError(
         "Cannot fetch more pending tickets",
@@ -49,4 +49,4 @@ async function getPendingTicekts() {
   }
 }
 
-module.exports = { sendMail, createTicket, getPendingTicekts };
+module.exports = { sendMail, createTicket, getPendingTickets };

@@ -6,7 +6,7 @@ class TicketRepository extends CrudRepository {
     super(Ticket);
   }
 
-  async getPendingTicekts() {
+  async getPendingTickets() {
     try {
       const tickets = await Ticket.findAll({
         where: {
