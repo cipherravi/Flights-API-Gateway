@@ -7,15 +7,15 @@ const { MailConfig } = require("../config");
 const { TicketRepository } = require("../repositories");
 const ticketRepositoty = new TicketRepository();
 
-async function sendMail(header, to, subject, text) {
+async function sendMail(header, customerEmail, subject, content) {
   try {
     // Email options
     let mailOptions = {
       from: `${header} ${from}`,
-      to: `${to}`,
+      to: `${customerEmail}`,
       subject: `${subject}`,
-      text: `${text}`,
-      //   html: `${html}`,
+      // text: `${text}`,
+      html: `${content}`,
     };
 
     //Send Mail

@@ -13,10 +13,25 @@ module.exports = (sequelize, DataTypes) => {
   }
   Ticket.init(
     {
-      header: { type: DataTypes.STRING, allowNull: false },
-      subject: { type: DataTypes.STRING, allowNull: false },
-      content: { type: DataTypes.STRING, allowNull: false },
-      recepientEmail: { type: DataTypes.STRING, allowNull: false },
+      header: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      subject: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      customerEmail: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      templateName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      templateData: {
+        type: DataTypes.JSON,
+      },
       status: {
         type: DataTypes.ENUM,
         values: ["PENDING", "SUCCESS", "FAILED"],

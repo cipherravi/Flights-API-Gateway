@@ -20,6 +20,20 @@ class TicketRepository extends CrudRepository {
       throw error;
     }
   }
+  async getSuccessTickets() {
+    try {
+      const tickets = await Ticket.findAll({
+        where: {
+          status: "SUCCESS",
+        },
+        limit: 10,
+      });
+
+      return tickets;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 module.exports = TicketRepository;

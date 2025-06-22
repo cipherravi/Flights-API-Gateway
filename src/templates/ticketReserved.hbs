@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
+      .email-container {
+        background-color: #ffffff;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      h2 {
+        color: #2a7ae2;
+      }
+      p {
+        color: #333333;
+        line-height: 1.5;
+      }
+      .button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 20px;
+        background-color: #2a7ae2;
+        color: #ffffff !important;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .footer {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #777777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <p>Hi <strong>{{customerName}}</strong>,</p>
+
+      <h2>Your Ticket is Reserved! 🎫</h2>
+
+      <p>
+        We're happy to let you know that your ticket for flight <strong>{{flightId}}</strong>
+        with seat number(s) <strong>{{seatNumbers}}</strong> has been reserved.
+      </p>
+
+      <p>
+        Please complete your payment within the next <strong>5 minutes</strong> to confirm your booking.
+      </p>
+
+      <a
+        class="button"
+        href="{{paymentLink}}"
+        target="_blank"
+      >
+        Make Payment
+      </a>
+
+      <p class="footer">
+        Thanks,<br>
+        <strong>Flights Team</strong>
+      </p>
+    </div>
+  </body>
+</html>

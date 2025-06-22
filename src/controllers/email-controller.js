@@ -7,8 +7,8 @@ const { SuccessResponse, ErrorResponse } = require("../utils/common");
 
 async function sendMail(req, res) {
   try {
-    const { header, to, subject, text } = req.body;
-    const response = await EmailService.sendMail(header, to, subject, text);
+    const { header, to, subject, content } = req.body;
+    const response = await EmailService.sendMail(header, to, subject, content);
 
     if (!response) {
       throw new AppError(
@@ -39,12 +39,14 @@ async function sendMail(req, res) {
 
 async function createTicket(req, res) {
   try {
-    const { header, subject, content, recepientEmail } = req.body;
+    const { header, subject, customerEmail, templateName, templateData } =
+      req.body;
     const response = await EmailService.createTicket({
       header,
       subject,
-      content,
-      recepientEmail,
+      customerEmail,
+      templateName,
+      templateData,
     });
     if (!response) {
       throw new AppError(

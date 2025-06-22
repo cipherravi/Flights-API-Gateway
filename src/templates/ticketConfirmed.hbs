@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        margin: 0;
+        padding: 0;
+      }
+      .email-container {
+        background-color: #ffffff;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      h2 {
+        color: #28a745;
+      }
+      p, td {
+        color: #333333;
+        line-height: 1.5;
+        font-size: 15px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      td {
+        padding: 8px 5px;
+        border-bottom: 1px solid #eeeeee;
+      }
+      .label {
+        font-weight: bold;
+        width: 40%;
+        background-color: #f9f9f9;
+      }
+      .footer {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #777777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <p>Hi <strong>{{customerName}}</strong>,</p>
+
+      <h2>🎉 Your Booking is Confirmed!</h2>
+
+      <p>Thank you for booking with us. Here are your booking details:</p>
+
+      <table>
+        <tr>
+          <td class="label">Flight ID</td>
+          <td>{{flightId}}</td>
+        </tr>
+        <tr>
+          <td class="label">Airplane</td>
+          <td>{{airplaneId}}</td>
+        </tr>
+        <tr>
+          <td class="label">Seat Number(s)</td>
+          <td>{{seatNumbers}}</td>
+        </tr>
+        <tr>
+          <td class="label">Total Paid</td>
+          <td>₹{{price}}</td>
+        </tr>
+        <tr>
+          <td class="label">Booking Time</td>
+          <td>{{bookingTime}}</td>
+        </tr>
+        <tr>
+          <td class="label">Status</td>
+          <td>{{status}}</td>
+        </tr>
+      </table>
+
+      <p class="footer">
+        You’ll receive more details, including your boarding pass, soon.<br>
+        <strong>Flights Team</strong>
+      </p>
+    </div>
+  </body>
+</html>

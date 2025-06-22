@@ -7,6 +7,7 @@ const apiRoutes = require("./routes");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const rateLimit = require("express-rate-limit");
 const sendPendingMailsCron = require("./utils/helper/sendPendingMails-Cron");
+const clearMails = require("./utils/helper/clearMails-cron");
 
 const limiter = rateLimit({
   windowMs: 1000 * 60 * 15,
@@ -48,6 +49,7 @@ app.use("/api", apiRoutes);
 app.listen(PORT, () => {
   console.log("Server started running at PORT ::", PORT);
   sendPendingMailsCron();
+  clearMails();
 });
 
 //http://localhost:PORT/authService/api/v1/info

@@ -5,7 +5,7 @@ const { TicketRepository } = require("../../repositories");
 const ticketRepositoty = new TicketRepository();
 const compileTemplate = require("../../utils/helper/templateHelper");
 
-function sendPendingMails() {
+function sendPaymentMails() {
   setInterval(async () => {
     try {
       const pendingTickets = await EmailService.getPendingTickets();
@@ -32,4 +32,4 @@ function sendPendingMails() {
   }, 1000 * 10);
 }
 
-module.exports = sendPendingMails;
+module.exports = sendPaymentMails;
